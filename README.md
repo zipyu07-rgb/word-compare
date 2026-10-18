@@ -1,10 +1,10 @@
-# Word 对比
+﻿# Word文本比对器
 
 一个轻量的 Windows 桌面工具：拖入原稿和修改稿，一键调用本机 Microsoft Word，生成带原生修订标记的对比稿。
 
 ## 下载与使用
 
-点击 [下载 WordCompare.exe](https://github.com/zipyu07-rgb/word-compare/raw/refs/heads/main/WordCompare.exe)，保存后双击运行。
+点击 [下载 Word文本比对器.exe](https://github.com/zipyu07-rgb/word-compare/raw/refs/heads/main/Word%E6%96%87%E6%9C%AC%E6%AF%94%E5%AF%B9%E5%99%A8.exe)，保存后双击运行。
 
 需要 Windows 和已安装、激活的 Microsoft Word 桌面版。无需安装 Python，无需账号或联网。
 
@@ -38,7 +38,7 @@
 开发用集成测试会在指定文件夹创建两份示例文档并生成对比稿：
 
 ```powershell
-.\WordCompare.exe --self-test C:\Temp\WordCompareTest
+.\Word文本比对器.exe --self-test C:\Temp\WordCompareTest
 ```
 
 请使用专门的空测试文件夹；测试结果写入 `test-result.txt`，错误写入 `test-error.txt`。

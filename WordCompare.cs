@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
@@ -6,6 +6,8 @@ using System.Threading;
 using System.Runtime.InteropServices;
 using System.Xml.Linq;
 
+[assembly: System.Reflection.AssemblyTitle("Word文本比对器")]
+[assembly: System.Reflection.AssemblyProduct("Word文本比对器")]
 namespace WordCompare {
  static class Program {
   [STAThread] static void Main(string[] args) {
@@ -53,7 +55,7 @@ namespace WordCompare {
   TableLayoutPanel body=new TableLayoutPanel(); string output; bool busy;
   string config=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"FrankWordCompare","settings.xml");
   public MainForm() {
-   Text="Word 对比 · 一键生成修订稿"; Size=new Size(830,570); MinimumSize=new Size(760,550); StartPosition=FormStartPosition.CenterScreen;
+   Text="Word文本比对器"; Size=new Size(830,570); MinimumSize=new Size(760,550); StartPosition=FormStartPosition.CenterScreen;
    Font=new Font("Microsoft YaHei UI",10); BackColor=Color.FromArgb(245,247,251); AutoScaleMode=AutoScaleMode.Dpi;
    body.Dock=DockStyle.Fill; body.Padding=new Padding(28); body.ColumnCount=1; body.RowCount=9;
    body.RowStyles.Add(new RowStyle(SizeType.Absolute,44)); body.RowStyles.Add(new RowStyle(SizeType.Absolute,32)); body.RowStyles.Add(new RowStyle(SizeType.Absolute,145)); body.RowStyles.Add(new RowStyle(SizeType.Absolute,44)); body.RowStyles.Add(new RowStyle(SizeType.Absolute,44)); body.RowStyles.Add(new RowStyle(SizeType.Absolute,42)); body.RowStyles.Add(new RowStyle(SizeType.Absolute,54)); body.RowStyles.Add(new RowStyle(SizeType.Absolute,42)); body.RowStyles.Add(new RowStyle(SizeType.Percent,100)); Controls.Add(body);
