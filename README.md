@@ -1,44 +1,15 @@
-﻿# Word文本比对器
+# Word 文本比对器
 
-一个轻量的 Windows 桌面工具：拖入原稿和修改稿，一键调用本机 Microsoft Word，生成带原生修订标记的对比稿。
+拖入两份 Word 文档，一键生成可逐条接受或拒绝的修订稿。适合合同、制度和其他需要核对版本的文档。
 
-## 下载与使用
+[下载 Windows 便携版](https://github.com/zipyu07-rgb/word-compare/raw/refs/heads/main/WordCompare.exe)。无需安装本工具；需要 Windows 和已安装、激活的 Microsoft Word 桌面版。
 
-点击 [下载 Word文本比对器.exe](https://github.com/zipyu07-rgb/word-compare/raw/refs/heads/main/Word%E6%96%87%E6%9C%AC%E6%AF%94%E5%AF%B9%E5%99%A8.exe)，保存后双击运行。
+1. 左侧放原稿，右侧放修改稿；支持 .doc 和 .docx。
+2. 填写修订人，按需选择是否比较格式，并可改输出文件名。
+3. 点击「生成对比稿」。默认存到修改稿所在文件夹，重名会自动编号。
 
-需要 Windows 和已安装、激活的 Microsoft Word 桌面版。无需安装 Python，无需账号或联网。
+工具调用本机 Word 的原生比较功能。原稿和修改稿以只读方式打开，工具不会上传文档。设置保存在当前 Windows 账户的本地配置目录。加密文档不支持；已有修订按 Word 的比较规则处理。
 
-1. 左侧选择或拖入原稿，右侧选择或拖入修改稿（支持 `.docx`、`.doc`）。
-2. 设置修订人；默认忽略格式变化，可取消勾选。
-3. 点击“生成对比稿”。默认保存到修改稿所在文件夹，也可指定保存位置。
-4. 完成后可打开对比稿或所在文件夹。生成的 `.docx` 可以在 Word 中接受或拒绝修订。
+## 从源码构建
 
-文件名包含时间，重名时自动编号。输入文档以只读方式打开，所有文档在本机处理。
-
-## 设置与限制
-
-修订人、忽略格式、自动打开和保存位置设置会自动记住，保存在 `%LOCALAPPDATA%\FrankWordCompare\settings.xml`。
-
-不支持加密文件。已有修订的文档按 Word 自身对比规则处理，建议先确认修订状态。首次使用如出现 Word 激活、许可或文件修复提示，请先在 Word 中完成处理。
-
-## 从源码编译
-
-在项目目录运行 PowerShell：
-
-```powershell
-.\build.ps1
-```
-
-脚本使用 Windows .NET Framework 4.x 自带的 C# 编译器，不需要额外下载依赖。源码入口为 `WordCompare.cs`。
-
-## 验证
-
-已在本机通过 Microsoft Word 生成测试对比稿，并检查输出文档的 XML，确认包含插入、删除及指定修订人。
-
-开发用集成测试会在指定文件夹创建两份示例文档并生成对比稿：
-
-```powershell
-.\Word文本比对器.exe --self-test C:\Temp\WordCompareTest
-```
-
-请使用专门的空测试文件夹；测试结果写入 `test-result.txt`，错误写入 `test-error.txt`。
+在 Windows PowerShell 中执行 `.\build.ps1`。脚本使用 .NET Framework 的 C# 编译器，并自动生成程序图标。
